@@ -8,14 +8,25 @@ import tests.factory.FinancingFactory;
 public class FinacingTests {
 
     @Test
-    public void shouldCreateFinancingWhenInputDataIsValid(){
+    public void shouldCreateFinancingWhenInputConstructorDataIsValid(){
         Assertions.assertDoesNotThrow(() -> FinancingFactory.createValidFinancing());
     }
 
     @Test
-    public void shouldNotCreateFinancingAndThrowExceptionWhenInputDataIsInvalid(){
+    public void shouldNotCreateFinancingAndThrowExceptionWhenInputConstructorDataIsInvalid(){
         Assertions.assertThrows(IllegalArgumentException.class, () -> FinancingFactory.createInvalidFinancing());
     }
 
+    @Test
+    public void shouldUpdateValueWhenSetTotalAmountInputDataIsValid(){
+        Financing financing = FinancingFactory.createValidFinancing();
+        Assertions.assertDoesNotThrow(() -> financing.setTotalAmount(50000.0));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenSetTotalAmountInputDataIsInvalid(){
+        Financing financing = FinancingFactory.createValidFinancing();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> financing.setTotalAmount(200000.0));
+    }
 
 }
