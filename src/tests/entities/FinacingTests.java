@@ -53,4 +53,12 @@ public class FinacingTests {
         Assertions.assertThrows(IllegalArgumentException.class, () -> financing.setMonths(10));
     }
 
+    @Test
+    public void shouldCalculateEntryValueCorrectly(){
+        Financing financing = FinancingFactory.createValidFinancing();
+        Double expectedValue = 20000.0;
+
+        Assertions.assertEquals(financing.entry(), expectedValue);
+    }
+
 }
