@@ -41,4 +41,16 @@ public class FinacingTests {
         Assertions.assertThrows(IllegalArgumentException.class, () -> financing.setIncome(1000.0));
     }
 
+    @Test
+    public void  shouldUpdateMonthsWhenSetMonthsInputDataIsValid(){
+        Financing financing = FinancingFactory.createValidFinancing();
+        Assertions.assertDoesNotThrow(() -> financing.setMonths(120));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenSetMonthsInputDataIsInvalid(){
+        Financing financing = FinancingFactory.createValidFinancing();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> financing.setMonths(10));
+    }
+
 }
