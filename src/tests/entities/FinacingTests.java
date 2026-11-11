@@ -29,4 +29,16 @@ public class FinacingTests {
         Assertions.assertThrows(IllegalArgumentException.class, () -> financing.setTotalAmount(200000.0));
     }
 
+    @Test
+    public void shouldUpdateIncomeWhenSetIncomeInputDataIsValid(){
+        Financing financing = FinancingFactory.createValidFinancing();
+        Assertions.assertDoesNotThrow(() -> financing.setIncome(4000.0));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenSetIncomeInputDataIsInvalid(){
+        Financing financing = FinancingFactory.createValidFinancing();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> financing.setIncome(1000.0));
+    }
+
 }
