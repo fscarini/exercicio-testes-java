@@ -61,4 +61,12 @@ public class FinacingTests {
         Assertions.assertEquals(financing.entry(), expectedValue);
     }
 
+    @Test
+    public void shouldCalculateQuotaValueCorrectly(){
+        Financing financing = FinancingFactory.createValidFinancing();
+        Double expectedValue = 1000.0;
+
+        Assertions.assertEquals(financing.quota(), expectedValue);
+    }
+
 }
